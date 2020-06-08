@@ -1,12 +1,14 @@
-web:
- image: allexiusw/composeapp
- command: python app.py
- ports: 
-  - "5000:5000"
- volumes:
-  - .:/composeapp
- links:
-  - redis
-
-redis:
- image: redis
+version: "2.0"
+services:
+ web:
+  build: ./flask/
+  command: python flask/app.py
+  ports: 
+   - "5000:5000"
+  volumes:
+   - .:/composeapp
+  links:
+   - redis
+ 
+ redis:
+  image: redis
