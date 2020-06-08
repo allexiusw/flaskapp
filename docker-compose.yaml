@@ -1,12 +1,12 @@
 version: "2.0"
 services:
  web:
-  build: ./flask/
-  command: python flask/app.py
+  build: ./
+  command: python app.py
   ports: 
    - "5000:5000"
   volumes:
-   - .:/composeapp
+   - ./src:/composeapp
   links:
    - redis
  
